@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get ('/user', [TestController::class, 'index']);
+
+Route::get ('/contact', [ContactController::class, 'index']);
+
+Route::get ('/contact/store', [ContactController::class, 'store']);
