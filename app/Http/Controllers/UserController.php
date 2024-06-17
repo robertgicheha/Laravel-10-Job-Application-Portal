@@ -9,14 +9,21 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-
+  //Seeker function
     const JOB_SEEKER = 'seeker';
 
     public function createSeeker(){
 
         return view('user.seeker-register');
     }
+ 
+     //Employer function
+      public function createEmployer(){
 
+        return view('user.employer-register');
+    }
+ 
+    //Store Seeker function
     public function storeSeeker(SeekerRegistrationRequest $request){
         User::create([
             'name'=> request('name'),
@@ -28,6 +35,8 @@ class UserController extends Controller
         return back();
     }
     
+
+    //Login function
     public function login(){
 
        return view('user.login');
@@ -49,7 +58,9 @@ class UserController extends Controller
 
         return 'Wrong email or password';
     }
+ 
 
+     //logout function
     public function logout(){
 
         auth()->logout();
