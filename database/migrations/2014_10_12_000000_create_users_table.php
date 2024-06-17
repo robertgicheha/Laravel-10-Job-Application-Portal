@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string ('username');
+            $table->string ('password');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->text('about')->nullable();
             $table->string ('profile_pic')->nullable();
-            $table->string ('uer_type');
+            $table->string ('user_type');
             $table->string ('resume')->nullable();
             $table->date ('user_trial')->nullable();
             $table->date ('billing_ends')->nullable();
@@ -29,6 +29,8 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+
+  
 
     /**
      * Reverse the migrations.
