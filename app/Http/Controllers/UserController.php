@@ -43,7 +43,8 @@ class UserController extends Controller
             'email'=>request('email'),
             'password'=>bcrypt(request('password')),
             'user_type' => self::JOB_POSTER,
-        ]);
+            'user_trial' => now()->addWeek()
+        ]); 
 
         return redirect() -> route('login')->with('successMessage', 'Your Employer Account was created successfully');
     }
