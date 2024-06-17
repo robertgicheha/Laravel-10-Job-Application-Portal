@@ -3,23 +3,29 @@
 
 @section('content')
     <div class="container mt-5">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mb-5 mt-5">
             Howdy, {{ auth()->user()->name }}
-            {{-- {{auth()->user()->email}} --}}
-            <p>Your trial will exprire on {{ auth()->user()->user_trial }}</p>
+            @if (Auth::check() && auth()->user()->user_type == 'employer')
+                <p>Your trial will exprire on {{ auth()->user()->user_trial }}</p>
+            @endif
+        </div>
 
+        <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="card-counter primary">
                     <p class="text-center mt-3 lead">User Profile</p>
                     <button class="btn btn-primary float-end">View</button>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card-counter danger">
-                    <p class="text-center mt-3 lead">Post a Job</p>
-                    <button class="btn btn-primary float-end">View</button>
+            @if (auth()->user()->user_type == 'employer')
+                <div class="col-md-3">
+                    <div class="card-counter danger">
+                        <p class="text-center mt-3 lead">Post a Job</p>
+                        <button class="btn btn-primary float-end">View</button>
+                    </div>
                 </div>
-            </div>
+            @endif
+
             <div class="col-md-3">
                 <div class="card-counter success">
                     <p class="text-center mt-3 lead">All Jobs</p>
