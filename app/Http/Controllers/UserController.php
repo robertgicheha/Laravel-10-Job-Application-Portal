@@ -27,7 +27,7 @@ class UserController extends Controller
             'user_type' => self::JOB_SEEKER,
         ]);
 
-        return redirect() -> route('login');
+        return redirect() -> route('login')->with('successMessage', 'Your Job Seeker Account was created successfully');;
     }
     
      //Employer function
@@ -45,7 +45,7 @@ class UserController extends Controller
             'user_type' => self::JOB_POSTER,
         ]);
 
-        return redirect() -> route('login');
+        return redirect() -> route('login')->with('successMessage', 'Your Employer Account was created successfully');
     }
 
     //Login function
