@@ -26,7 +26,7 @@ Route::post('/register/seeker', [UserController::class, 'storeSeeker'])->name('s
 
 //Employer Routes
 Route::get('/register/employer', [UserController::class, 'createEmployer'])->name('create.employer');
-
+Route::post('/register/employer', [UserController::class, 'storeEmployer'])->name('store.employer');
 
 //Login Routes
 Route::get('/login', [UserController::class, 'login'])->name('login');
